@@ -12,6 +12,7 @@ namespace CoreFramework.BrowserConfig
         private static ThreadLocal<IWebDriver> _threadDriver = new ThreadLocal<IWebDriver>();
 
         private static readonly object _lock = new object();
+        //
 
         private static string browserType = Browser.localhost.ToString();
 
