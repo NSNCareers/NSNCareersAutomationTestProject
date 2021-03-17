@@ -24,8 +24,8 @@ namespace TestFramework.Tests
 
             _loginPage = _homePage.ClickOnLoginLink<LoginPage>();
 
-            var email = "snscareers@yahoo.com";
-            var password = "Password01#";
+            var email = "nsntestaccount@yahoo.com";
+            var password = "Password01$";
             _loginPage.EnterEmail(email);
             _loginPage.EnterPassword(password);
             _loginPage.CheckRememberMeRadioButton();
@@ -43,7 +43,7 @@ namespace TestFramework.Tests
         public void AssertPageTitel()
         {
             var titel = _userAccountPage.GetPageTitel();
-            var pageTitel = "Home page - LoginApp";
+            var pageTitel = "Home pages - LoginApp";
             Assert.AreEqual(titel,pageTitel);
         }
 
@@ -59,7 +59,7 @@ namespace TestFramework.Tests
         {
             _logoutPage = _userAccountPage.ClickOnLogoutButton<LogoutPage>();
             var titel = _logoutPage.GetPageTitel();
-            var pageTitel = "Log out - LoginApp";
+            var pageTitel = "Logs out - LoginApp";
             Assert.AreEqual(titel, pageTitel);
         }
 
@@ -76,7 +76,7 @@ namespace TestFramework.Tests
         {
             _homePage = _logoutPage.ClickOnLoginAppLink<HomePage>();
             var titel = _homePage.GetPageTitel();
-            var pageTitel = "Home page - LoginApp";
+            var pageTitel = "Home pages - LoginApp";
             Assert.AreEqual(titel, pageTitel);
         }
     }

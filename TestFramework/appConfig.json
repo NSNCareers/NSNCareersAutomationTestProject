@@ -1,5 +1,5 @@
 ﻿{
-  "BaseUrl": "http://prod.loginapp.nsncareers.com",
+  "BaseUrl": "http://qa.loginapp.nsncareers.com",
   "ApplicationName": "",
   "Version": "",
   "Environment": "",

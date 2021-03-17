@@ -22,7 +22,7 @@ namespace TestFramework.Tests
         public void AssertPageTitel()
         {
             var titel = _homePage.GetPageTitel();
-            var pageTitel = "Home page - LoginApp";
+            var pageTitel = "Home pages - LoginApp";
             Assert.AreEqual(titel,pageTitel);
         }
 

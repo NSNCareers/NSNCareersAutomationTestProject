@@ -14,6 +14,8 @@
         void ClickEmailButton();
         bool VerifyManageEmailText(string emailText);
         bool VerifyProfileText(string profileText);
-
+        bool VerifyWarningMessage(string emailText);
+        void ClickDownloadButton();
+        void ClickPersonalDataButton();
     }
 }

@@ -28,8 +28,8 @@ namespace TestFramework.Tests
             var value = _random.Next(1,20000);
             _registerPage = _homePage.ClickOnRegisterLink<RegisterPage>();
             
-            var email = $"snscareer{value}@yahoo.com";
-            var password = "Password01#";
+            var email = $"nsntestaccount{value}@yahoo.com";
+            var password = "Password01$";
             _registerPage.EnterEmail(email);
             _registerPage.EnterPassword(password);
             _registerPage.EnterConfirmPassword(password);
@@ -43,7 +43,7 @@ namespace TestFramework.Tests
         public void AssertPageTitel()
         {
             var titel = _registerConfirmationPage.GetPageTitel();
-            var pageTitel = "Register confirmation - LoginApp";
+            var pageTitel = "Register confirmationing - LoginApp";
             Assert.AreEqual(titel,pageTitel);
         }
 
@@ -76,7 +76,7 @@ namespace TestFramework.Tests
         {
             _homePage = _registerConfirmationPage.ClickOnLoginAppLink<HomePage>();
             var titel = _homePage.GetPageTitel();
-            var pageTitel = "Home page - LoginApp";
+            var pageTitel = "Home pages - LoginApp";
             Assert.AreEqual(titel, pageTitel);
         }
     }

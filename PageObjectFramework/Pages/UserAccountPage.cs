@@ -78,9 +78,28 @@ namespace PageObjectFramework.Pages
             ClickOnElement(locator);
         }
 
+        public void ClickPersonalDataButton()
+        {
+            var locator = By.CssSelector("li>a[id='personal-data']");
+            ClickOnElement(locator);
+        }
+
+        public void ClickDownloadButton()
+        {
+            var locator = By.CssSelector("form>button[class='btn btn-primary']");
+            ClickOnElement(locator);
+        }
+
         public bool VerifyManageEmailText(string emailText)
         {
             var locator = By.CssSelector("div[role='alert']");
+            var boolResults = DoesElementContainText(locator, emailText);
+            return boolResults;
+        }
+
+        public bool VerifyWarningMessage(string emailText)
+        {
+            var locator = By.CssSelector("p>strong");
             var boolResults = DoesElementContainText(locator, emailText);
             return boolResults;
         }

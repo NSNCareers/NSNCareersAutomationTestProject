@@ -31,9 +31,9 @@ namespace TestFramework.Tests
             var value = _random.Next(100, 20000);
             _loginPage = _homePage.ClickOnLoginLink<LoginPage>();
 
-            var email = "snscareers@yahoo.com";
-            var password = "Password01#";
-            newEmail = $"snscareers{value}@yahoo.com";
+            var email = "nsntestaccount@yahoo.com";
+            var password = "Password01$";
+            newEmail = $"nsntestaccount{value}@yahoo.com";
             _loginPage.EnterEmail(email);
             _loginPage.EnterPassword(password);
             _loginPage.CheckRememberMeRadioButton();
@@ -48,21 +48,21 @@ namespace TestFramework.Tests
 
 
 
-        [Test, Category("Login logout User")]
+        [Test, Category("Login User and Edit Profile")]
         public void AssertPageTitel()
         {
             var titel = _userAccountPage.GetPageTitel();
-            var pageTitel = "Home page - LoginApp";
+            var pageTitel = "Home pages - LoginApp";
             Assert.AreEqual(titel,pageTitel);
         }
 
-        [Test, Category("Login logout User")]
+        [Test, Category("Login User and Edit Profile")]
         public void ClickOnUserEmail()
         {
            _userAccountPage.ClickOnUserEmail();
         }
 
-        [Test, Category("Login logout User")]
+        [Test, Category("Login User and Edit Profile")]
         public void EnterOrChangeUserNumber()
         {
             _userAccountPage.EnterTelephoneNumber(telNumber.ToString());
@@ -73,7 +73,7 @@ namespace TestFramework.Tests
             Assert.IsTrue(boolResults, "Element does not contain text");
         }
 
-        [Test, Category("Login logout User")]
+        [Test, Category("Login User and Edit Profile")]
         public void EnterOrChangeUsersNumber()
         {
             _userAccountPage.ClickEmailButton();
@@ -85,12 +85,23 @@ namespace TestFramework.Tests
             Assert.IsTrue(boolResults, "Element does not contain text");
         }
 
-        [Test, Category("Login logout User")]
+        [Test, Category("Login User and Edit Profile")]
+        public void GoToDownloadPersonalData()
+        {
+            _userAccountPage.ClickPersonalDataButton();
+            _userAccountPage.ClickDownloadButton();
+
+            var text = "Deleting this data will permanently remove your account, and this cannot be recovered.";
+            var boolResults = _userAccountPage.VerifyWarningMessage(text);
+            Assert.IsTrue(boolResults, "Element does not contain text");
+        }
+
+        [Test, Category("Login User and Edit Profile")]
         public void LogUserOut()
         {
             _logoutPage = _userAccountPage.ClickOnLogoutButton<LogoutPage>();
             var titel = _logoutPage.GetPageTitel();
-            var pageTitel = "Log out - LoginApp";
+            var pageTitel = "Logs out - LoginApp";
             Assert.AreEqual(titel, pageTitel);
         }
 
