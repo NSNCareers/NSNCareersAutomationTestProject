@@ -1,5 +1,4 @@
 ﻿using OpenQA.Selenium;
-using static CoreFramework.Enumerations.Enums;
 
 namespace CoreFramework.BrowserConfig
 {

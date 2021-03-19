@@ -10,10 +10,7 @@ namespace CoreFramework.BrowserConfig
     internal class BrowserSession
     {
         private static ThreadLocal<IWebDriver> _threadDriver = new ThreadLocal<IWebDriver>();
-
         private static readonly object _lock = new object();
-        //
-
         private static string browserType = Browser.localhost.ToString();
 
         static BrowserSession()
@@ -44,8 +41,6 @@ namespace CoreFramework.BrowserConfig
             }
             catch (Exception e)
             {
-
-                throw e;
             }
         }
 
@@ -63,7 +58,7 @@ namespace CoreFramework.BrowserConfig
                 // This code assumes the process you are starting will terminate itself.   
                 // Given that is is started without a window so you cannot terminate it   
                 // on the desktop, it must terminate itself or you can do it programmatically  
-                // from this application using the Kill method.  
+                // from this application using the Kill method. 
             }
             catch (Exception e)
             {
@@ -90,7 +85,7 @@ namespace CoreFramework.BrowserConfig
 
             if (_threadDriver.Value != null)
             {
-                _threadDriver.Value.Close();
+                //_threadDriver.Value.Close();
                 _threadDriver.Value.Quit();
             }
         }

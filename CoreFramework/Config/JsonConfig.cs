@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Microsoft.Extensions.Configuration;
+using System;
 using System.IO;
 using System.Reflection;
-using Microsoft.Extensions.Configuration;
 
 namespace CoreFramework.Config
 {
@@ -9,12 +9,19 @@ namespace CoreFramework.Config
     {
         private static IConfiguration _configuration { get; set; }
 
-       public static string GetJsonValue(string key)
+        public static string GetJsonValue(string key)
         {
-            var path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            var builder = new ConfigurationBuilder().SetBasePath(path).AddJsonFile("appConfig.json").Build();
-
-            string value = builder[key];
+            string value = string.Empty;
+            try
+            {
+                var path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+                var builder = new ConfigurationBuilder().SetBasePath(path).AddJsonFile("appConfig.json").Build();
+                value = builder[key];             
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
 
             return value;
         }

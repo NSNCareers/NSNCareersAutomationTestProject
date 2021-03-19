@@ -18,7 +18,6 @@ namespace CoreFramework.BaseClasses
             }
             catch (Exception e)
             {
-                // Report
             }
 
             return boolResults;
@@ -35,7 +34,6 @@ namespace CoreFramework.BaseClasses
             }
             catch (Exception e)
             {
-                // Report
             }
 
             return boolResults;
@@ -52,7 +50,6 @@ namespace CoreFramework.BaseClasses
             }
             catch (Exception e)
             {
-               // Report
             }
 
             return boolResults;
@@ -69,7 +66,6 @@ namespace CoreFramework.BaseClasses
             }
             catch (Exception e)
             {
-                // Report
             }
 
             return boolResults;
@@ -78,15 +74,15 @@ namespace CoreFramework.BaseClasses
         public bool WaitUntillPageFullyLoaded(int timeout = 20)
         {
             var boolResults = false;
+            string page = "Page not loaded";
             var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeout));
             IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
             try
             {
                 wait.Until(wd => js.ExecuteScript("return document.readyState").ToString() == "complete");
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                // Report
             }
 
             return boolResults;

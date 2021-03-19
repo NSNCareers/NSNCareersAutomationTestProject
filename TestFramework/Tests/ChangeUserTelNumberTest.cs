@@ -1,4 +1,5 @@
 ﻿using CoreFramework.BrowserConfig;
+using CoreFramework.Config;
 using NUnit.Framework;
 using PageObjectFramework.Interfaces;
 using PageObjectFramework.IOC;
@@ -31,8 +32,8 @@ namespace TestFramework.Tests
             var value = _random.Next(100, 20000);
             _loginPage = _homePage.ClickOnLoginLink<LoginPage>();
 
-            var email = "nsntestaccount@yahoo.com";
-            var password = "Password01$";
+            var email = JsonConfig.GetJsonValue("Email");
+            var password = JsonConfig.GetJsonValue("Password");
             newEmail = $"nsntestaccount{value}@yahoo.com";
             _loginPage.EnterEmail(email);
             _loginPage.EnterPassword(password);
@@ -46,9 +47,7 @@ namespace TestFramework.Tests
             Session.CloseBrowser();
         }
 
-
-
-        [Test, Category("Login User and Edit Profile")]
+        [Test, Category("Edit User Profile")]
         public void AssertPageTitel()
         {
             var titel = _userAccountPage.GetPageTitel();
@@ -56,13 +55,13 @@ namespace TestFramework.Tests
             Assert.AreEqual(titel,pageTitel);
         }
 
-        [Test, Category("Login User and Edit Profile")]
+        [Test, Category("Edit User Profile")]
         public void ClickOnUserEmail()
         {
            _userAccountPage.ClickOnUserEmail();
         }
 
-        [Test, Category("Login User and Edit Profile")]
+        [Test, Category("Edit User Profile")]
         public void EnterOrChangeUserNumber()
         {
             _userAccountPage.EnterTelephoneNumber(telNumber.ToString());
@@ -73,7 +72,7 @@ namespace TestFramework.Tests
             Assert.IsTrue(boolResults, "Element does not contain text");
         }
 
-        [Test, Category("Login User and Edit Profile")]
+        [Test, Category("Edit User Profile")]
         public void EnterOrChangeUsersNumber()
         {
             _userAccountPage.ClickEmailButton();
@@ -85,7 +84,7 @@ namespace TestFramework.Tests
             Assert.IsTrue(boolResults, "Element does not contain text");
         }
 
-        [Test, Category("Login User and Edit Profile")]
+        [Test, Category("Edit User Profile")]
         public void GoToDownloadPersonalData()
         {
             _userAccountPage.ClickPersonalDataButton();
@@ -96,7 +95,7 @@ namespace TestFramework.Tests
             Assert.IsTrue(boolResults, "Element does not contain text");
         }
 
-        [Test, Category("Login User and Edit Profile")]
+        [Test, Category("Edit User Profile")]
         public void LogUserOut()
         {
             _logoutPage = _userAccountPage.ClickOnLogoutButton<LogoutPage>();

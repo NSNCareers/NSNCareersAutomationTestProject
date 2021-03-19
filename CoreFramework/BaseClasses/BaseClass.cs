@@ -1,6 +1,6 @@
-﻿using System;
-using CoreFramework.BrowserConfig;
+﻿using CoreFramework.BrowserConfig;
 using OpenQA.Selenium;
+using System;
 
 namespace CoreFramework.BaseClasses
 {
@@ -22,7 +22,6 @@ namespace CoreFramework.BaseClasses
             var boolResults = WaitTillElementIsDisplayed(_by);
             if (!boolResults)
             {
-                // Report with page name
                 Console.WriteLine($"Unable to find element on page {_pageName}");
                 return false;
             }

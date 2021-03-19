@@ -1,4 +1,5 @@
 ﻿using CoreFramework.BrowserConfig;
+using CoreFramework.Config;
 using NUnit.Framework;
 using PageObjectFramework.Interfaces;
 using PageObjectFramework.IOC;
@@ -24,8 +25,8 @@ namespace TestFramework.Tests
 
             _loginPage = _homePage.ClickOnLoginLink<LoginPage>();
 
-            var email = "nsntestaccount@yahoo.com";
-            var password = "Password01$";
+            var email = JsonConfig.GetJsonValue("Email");
+            var password = JsonConfig.GetJsonValue("Password");
             _loginPage.EnterEmail(email);
             _loginPage.EnterPassword(password);
             _loginPage.CheckRememberMeRadioButton();
@@ -39,7 +40,7 @@ namespace TestFramework.Tests
 
 
 
-        [Test, Category("Login logout User")]
+        [Test, Category("Login User")]
         public void AssertPageTitel()
         {
             var titel = _userAccountPage.GetPageTitel();
@@ -47,14 +48,14 @@ namespace TestFramework.Tests
             Assert.AreEqual(titel,pageTitel);
         }
 
-        [Test, Category("Login logout User")]
+        [Test, Category("Login User")]
         public void ClickOnUserEmail()
         {
             
            _userAccountPage.ClickOnUserEmail();
         }
 
-        [Test, Category("Login logout User")]
+        [Test, Category("Login User")]
         public void LogUserOut()
         {
             _logoutPage = _userAccountPage.ClickOnLogoutButton<LogoutPage>();

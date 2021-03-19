@@ -6,5 +6,7 @@
   "PageLoad": "100",
   "ElementWaitTime": "10",
   "RemoteWebdriverWait": "600",
-  "HubIpAddress": "http://167.172.59.97:4444/wd/hub"
+  "HubIpAddress": "http://167.172.59.97:4444/wd/hub",
+  "Email": "nsntestaccount@yahoo.com",
+  "Password": "Password01$"
 }

@@ -1,5 +1,5 @@
-﻿using System;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
+using System;
 
 namespace CoreFramework.BaseClasses
 {
@@ -25,11 +25,9 @@ namespace CoreFramework.BaseClasses
                 {
                     element.SendKeys(item.ToString());
                 }
-                
             }
             finally
             {
-                // Report to user unable to click
             }
         }
 
@@ -49,7 +47,6 @@ namespace CoreFramework.BaseClasses
             }
             finally
             {
-                // Report to user unable to click
             }
 
             return true;
@@ -72,7 +69,6 @@ namespace CoreFramework.BaseClasses
             }
             finally
             {
-                // Report to user unable to click
             }
 
             return true;
@@ -88,7 +84,6 @@ namespace CoreFramework.BaseClasses
             }
             catch (Exception e)
             {
-                // Report
             }
         }
 
@@ -102,7 +97,6 @@ namespace CoreFramework.BaseClasses
             }
             catch (Exception e)
             {
-                // Report
             }
         }
 

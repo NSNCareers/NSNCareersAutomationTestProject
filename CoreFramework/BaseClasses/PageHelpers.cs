@@ -1,7 +1,4 @@
-﻿using System;
-using OpenQA.Selenium;
-
-namespace CoreFramework.BaseClasses
+﻿namespace CoreFramework.BaseClasses
 {
     public abstract partial class BaseClass
     {
